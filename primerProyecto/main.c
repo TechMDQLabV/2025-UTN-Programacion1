@@ -3,8 +3,15 @@
 #include <conio.h>
 #include "pila.h"
 
-void opcionesMenu();
+#define ESC 27
 
+void opcionesMenu();
+int suma(int uno, int dos);
+void codigoAscii();
+void copiaPila(Pila origen, Pila *destino);
+void cargaPilaRandom(Pila *pila);
+void muestraPila(Pila origen);
+void cargaPila(Pila *p, char log[]);
 
 int main()
 {
@@ -13,16 +20,10 @@ int main()
     inicpila(&dada);
     inicpila(&volcom);
 
-    cargaPilaRandom(&dada);
-    muestraPila(&dada);
-    copiaPila(dada, &volcom);
-    mostrar(&dada);
-    mostrar(&volcom);
     char opcion;
 
     do{
         opcionesMenu();
-
         opcion = getch();
 
         switch(opcion){
@@ -35,6 +36,18 @@ int main()
             case 50:
                 printf("\t\t\t Archivos de la carpeta actual");
                 system("dir");
+                break;
+            case 51:
+                printf("<< Cargando pila de forma aleatoria >>");
+                cargaPilaRandom(&dada);
+                break;
+            case 52:
+                printf("<< Cargando pila  >>");
+                cargaPila(&dada, "Ingrese una edad: ");
+                break;
+            case 53:
+                printf("<<< Listado de edades >>>");
+                muestraPila(dada);
         }
         Sleep(1500);
         system("cls");
@@ -47,8 +60,9 @@ void opcionesMenu(){
     printf("\n\t\t\t Menu de Opciones\n");
     printf("\n1 - Tabla ASCII");
     printf("\n2 - Mostrar dir");
-    printf("\n3 - Ejercicio 2");
-    printf("\n4 - Ejercicio 3");
+    printf("\n3 - Carga pila random");
+    printf("\n4 - Carga pila");
+    printf("\n5 - Muestra pila");
     printf("\nESC para salir ...");
 }
 
@@ -87,4 +101,17 @@ void muestraPila(Pila origen){
         printf("%d\n", tope(&origen));
         apilar(&aux, desapilar(&origen));
     }
+}
+
+void cargaPila(Pila *p, char log[]){
+    int nro;
+    char cont;
+
+    do{
+        printf("\n %s", log);
+        scanf("%d", &nro);
+        apilar(p, nro);
+        printf("\n\nESC para salir o cualquier tecla para continuar ....");
+        cont=getch();
+    }while(cont != ESC); /// cont != 27
 }
