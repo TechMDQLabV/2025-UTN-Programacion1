@@ -13,6 +13,8 @@ void copiaPila(Pila origen, Pila *destino);
 void cargaPilaRandom(Pila *pila);
 void muestraPila(Pila origen);
 void cargaPila(Pila *p, char log[]);
+int buscaMenor(Pila *p);
+void ordenaPilaPorSeleccion(Pila *origen, Pila *ordenada);
 
 int main()
 {
@@ -21,6 +23,7 @@ int main()
     Pila volcom;
     inicpila(&dada);
     inicpila(&volcom);
+    int encontrado;
 
     char opcion;
 
@@ -66,8 +69,29 @@ int main()
                 }else{
                     printf("\n La pila esta vacia");
                 }
+                break;
+            case 56:
+                printf("\n<<< Ordena pila por seleccion >>>");
+                //ordenaPilaPorSeleccion(&dada, &volcom);
+                ordenaPilaPorSeleccion1(&dada);
+                printf("\n<<< Pila dada >>>");
+                muestraPila(dada);
+                printf("\n<<< Pila volcom >>>");
+                muestraPila(volcom);
+                break;
+            case 57:
+                printf("\n<<< Busca un elemento en una pila >>>");
+                apilar(&dada, 10);
+                encontrado = buscaElementoEnPila(dada, 10);
+                muestraPila(dada);
+                if(encontrado){ /// es igual a if(encontrado == 1)
+                    printf("El nro 10 se encuentra en la Pila");
+                }else{
+                    printf("El nro 10 NO se encuentra en la pila");
+                }
         }
         //Sleep(1500);
+        printf("\n");
         system("pause");
         system("cls");
     }while(opcion!=27);
@@ -84,6 +108,8 @@ void opcionesMenu(){
     printf("\n5 - Muestra pila");
     printf("\n6 - Pasa pila");
     printf("\n7 - Busca menor");
+    printf("\n8 - Ordena pila por seleccion");
+    printf("\n9 - Busca un elemento en una pila");
     printf("\nESC para salir ...");
 }
 
@@ -173,4 +199,47 @@ int buscaMenor(Pila *p){
     }
 
     return menor;
+}
+
+void ordenaPilaPorSeleccion(Pila *origen, Pila *ordenada){
+    while(!pilavacia(origen)){
+        apilar(ordenada, buscaMenor(origen));
+    }
+}
+
+void ordenaPilaPorSeleccion1(Pila *origen){
+    Pila aux;
+    inicpila(&aux);
+    while(!pilavacia(origen)){
+        apilar(&aux, buscaMenor(origen));
+    }
+    pasaPila(&aux, origen);
+}
+
+int buscaElementoEnPila(Pila origen, int aBuscar){
+    Pila aux;
+    inicpila(&aux);
+    int encontrado = 0;
+    while(!pilavacia(&origen) && encontrado == 0){
+        if(tope(&origen) == aBuscar){
+            encontrado = 1;
+        }
+        apilar(&aux, desapilar(&origen));
+    }
+    return encontrado;
+}
+
+int buscaElementoEnPila1(Pila origen, int aBuscar){
+    Pila aux;
+    inicpila(&aux);
+    int encontrado;
+    while(!pilavacia(&origen) && tope(&origen) != aBuscar){
+        apilar(&aux, desapilar(&origen));
+    }
+    if(pilavacia(&origen)){
+        encontrado = 0;
+    }else{
+        encontrado = 1;
+    }
+    return encontrado;
 }
