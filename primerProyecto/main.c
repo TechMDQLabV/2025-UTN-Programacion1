@@ -36,7 +36,8 @@ int main() {
 
     printf("\nParametro antes en el main nro1: %p - %d", &nro1, nro1);
     printf("\nParametro antes en el main nro2: %p - %d", &nro2, nro2);
-    intercambio(&nro1, &nro2);
+    //intercambio(&nro1, &nro2);
+    intercambioSinAux(&nro1, &nro2);
     printf("\nParametro despues en el main nro1: %p - %d", &nro1, nro1);
     printf("\nParametro despues en el main nro2: %p - %d", &nro2, nro2);
 
@@ -309,4 +310,10 @@ void intercambio(int *a, int *b){
     *b = aux;
     printf("Parametro despues a: %p - %d", a, *a);
     printf("Parametro despues b: %p - %d", b, *b);
+}
+
+void intercambioSinAux(int *a, int *b){
+	*a = *a + *b;
+	*b = *a - *b;
+	*a = *a - *b;
 }
