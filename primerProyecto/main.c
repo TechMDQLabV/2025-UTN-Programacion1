@@ -20,8 +20,9 @@ void ordenaPilaPorSeleccion(Pila *origen, Pila *ordenada);
 void ordenaPilaPorSeleccion1(Pila *origen);
 int buscaElementoEnPila(Pila origen, int aBuscar);
 int buscaElementoEnPila1(Pila origen, int aBuscar);
-void insertaEnOrden(Pila *ordenada, int dato){;
+void insertaEnOrden(Pila *ordenada, int dato);
 void ordenaPilaPorInsercion(Pila *des);
+void intercambio(int *a, int *b);
 
 int main() {
     srand(time(NULL));
@@ -30,6 +31,14 @@ int main() {
     inicpila(&dada);
     inicpila(&volcom);
     int encontrado;
+    int nro1 = 10;
+    int nro2 = 20;
+
+    printf("\nParametro antes en el main nro1: %p - %d", &nro1, nro1);
+    printf("\nParametro antes en el main nro2: %p - %d", &nro2, nro2);
+    intercambio(&nro1, &nro2);
+    printf("\nParametro despues en el main nro1: %p - %d", &nro1, nro1);
+    printf("\nParametro despues en el main nro2: %p - %d", &nro2, nro2);
 
     //printf("\n La cantidad de digitos es: %d", cuentaDigitos(1110));
 
@@ -289,4 +298,15 @@ void ordenaPilaPorInsercion(Pila *des){
         insertaEnOrden(&aux, desapilar(des));
     }
     pasaPila(&aux, des);
+}
+
+void intercambio(int *a, int *b){
+    printf("\nParametro antes a: %p - %d", a, *a);
+    printf("\nParametro antes b: %p - %d", b, *b);
+    int aux;
+    aux = *a;
+    *a = *b;
+    *b = aux;
+    printf("Parametro despues a: %p - %d", a, *a);
+    printf("Parametro despues b: %p - %d", b, *b);
 }
