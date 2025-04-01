@@ -24,6 +24,8 @@ void insertaEnOrden(Pila *ordenada, int dato);
 void ordenaPilaPorInsercion(Pila *des);
 void intercambio(int *a, int *b);
 
+#define DIM 50
+
 int main() {
     srand(time(NULL));
     Pila dada;
@@ -33,6 +35,8 @@ int main() {
     int encontrado;
     int nro1 = 10;
     int nro2 = 20;
+    int arreglo[DIM];
+    int vArreglo = 0;
 
     printf("\nParametro antes en el main nro1: %p - %d", &nro1, nro1);
     printf("\nParametro antes en el main nro2: %p - %d", &nro2, nro2);
@@ -123,6 +127,17 @@ int main() {
             ordenaPilaPorInsercion(&dada);
             printf("\n<<< Pila dada ordenada >>>");
             muestraPila(dada);
+            break;
+        case 99:
+            printf("\n <<< Carga arreglo random >>>");
+            vArreglo = cargaArregloRandom(arreglo, DIM);
+            break;
+        case 100:
+            printf("\n <<< Muestra arreglo >>>");
+            muestraArregloInt(arreglo, vArreglo);
+            break;
+        case 101:
+            vArreglo = 0;
         }
         //Sleep(1500);
         printf("\n");
@@ -146,6 +161,9 @@ void opcionesMenu() {
     printf("\n9 - Busca un elemento en una pila");
     printf("\na - Inserta en orden");
     printf("\nb - Ordena por insercion");
+    printf("\nc - Carga arreglo random");
+    printf("\nd - Muestra arreglo");
+    printf("\ne - Borra arreglo");
     printf("\nESC para salir ...");
 }
 
@@ -316,4 +334,21 @@ void intercambioSinAux(int *a, int *b){
 	*a = *a + *b;
 	*b = *a - *b;
 	*a = *a - *b;
+}
+
+int cargaArregloRandom(int a[], int dim){
+    int i;
+    for(i=0; i<dim;i++){
+        a[i] = rand()%1000;
+    }
+    return i;
+}
+
+void muestraArregloInt(int a[], int v){
+    for(int i=0;i<v;i++){
+        if(i%7==0){
+            printf("\n");
+        }
+        printf("%5d", a[i]);
+    }
 }
