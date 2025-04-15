@@ -5,6 +5,9 @@ void menu();
 int cargaArregloRandom(int a[], int dim);
 int cargaArreglo(int a[], int v, int dim);
 void muestraArreglo(int a[], int v);
+void intercambio(int* a, int* b);
+int buscaPosMenor(int a[], int v, int inicio);
+void ordenacionPorSeleccionInt(int a[], int v);
 
 #define ESC 27
 #define DIM 100
@@ -14,6 +17,7 @@ int main()
     char opcion;
     int notas[DIM];
     int vNotas = 0;
+    int posMenor;
 
     do{
         menu();
@@ -36,6 +40,15 @@ int main()
                 printf("\n <<< Limpia arreglo >>>");
                 vNotas = 0;
                 break;
+            case 53:
+                printf("\n <<< Busca Menor >>>");
+                posMenor = buscaPosMenor(notas, vNotas, 0);
+                printf("\n El menor es: %d", notas[posMenor]);
+                break;
+            case 54:
+                printf("\n <<< Ordenacion por seleccion >>>");
+                ordenacionPorSeleccionInt(notas, vNotas);
+                break;
         }
         getch();
         system("cls");
@@ -49,6 +62,8 @@ void menu(){
     printf("\n\n 2.- Carga arreglo");
     printf("\n\n 3.- Muestra arreglo");
     printf("\n\n 4.- Limpia arreglo");
+    printf("\n\n 5.- Busca menor");
+    printf("\n\n 6.- Ordenacion por Seleccion");
     printf("\n\n\tESC para salir");
 }
 
@@ -80,5 +95,34 @@ void muestraArreglo(int a[], int v){
             printf("\n");
         }
         printf("%3d", a[i]);
+    }
+}
+
+void intercambio(int* a, int* b){
+    int aux = *a;
+    *a = *b;
+    *b = aux;
+}
+
+int buscaPosMenor(int a[], int v, int inicio){
+    int posMenor = -1;
+    if(v > 0){
+        posMenor = inicio;
+    }
+
+    for(int i = inicio; i<v; i++){
+        if(a[i]<a[posMenor]){
+            posMenor=i;
+        }
+    }
+
+    return posMenor;
+}
+
+void ordenacionPorSeleccionInt(int a[], int v){
+    int posMenor;
+    for(int i=0;i<v-1;i++){
+        posMenor = buscaPosMenor(a, v, i);
+        intercambio(&a[i],&a[posMenor]);
     }
 }

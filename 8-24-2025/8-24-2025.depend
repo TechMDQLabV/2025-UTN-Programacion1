@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1490112218 source:c:\users\trosa\onedrive - emmsa\escritorio\ayudantias\8-24-2025\pila.c
+	"pila.h"
+
+1490112218 c:\users\trosa\onedrive - emmsa\escritorio\ayudantias\8-24-2025\pila.h
+	<stdio.h>
+	<malloc.h>
+
+1744157602 source:c:\users\trosa\onedrive - emmsa\escritorio\ayudantias\8-24-2025\main.c
+	<stdio.h>
+	<stdlib.h>
+	"pila.h"
+	<time.h>
+
