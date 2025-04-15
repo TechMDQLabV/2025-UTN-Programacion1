@@ -8,6 +8,9 @@ void muestraArreglo(int a[], int v);
 void intercambio(int* a, int* b);
 int buscaPosMenor(int a[], int v, int inicio);
 void ordenacionPorSeleccionInt(int a[], int v);
+int insertaEnArregloOrdenadoInt(int a[], int v, int dim, int dato);
+void insertaEnArregloOrdenadoInt2(int a[], int v, int dato);
+void ordenaPorInsercion(int a[], int v);
 
 #define ESC 27
 #define DIM 100
@@ -49,6 +52,14 @@ int main()
                 printf("\n <<< Ordenacion por seleccion >>>");
                 ordenacionPorSeleccionInt(notas, vNotas);
                 break;
+            case 55:
+                printf("\n <<< Inserta en arreglo ordenado >>>");
+                vNotas=insertaEnArregloOrdenadoInt(notas, vNotas, DIM, 0);
+                break;
+            case 56:
+                printf("\n <<< Ordenacion por insercion >>>");
+                ordenaPorInsercion(notas, vNotas);
+                break;
         }
         getch();
         system("cls");
@@ -64,12 +75,14 @@ void menu(){
     printf("\n\n 4.- Limpia arreglo");
     printf("\n\n 5.- Busca menor");
     printf("\n\n 6.- Ordenacion por Seleccion");
+    printf("\n\n 7.- Inserta en arreglo ordenado");
+    printf("\n\n 8.- Ordenacion por Insercion");
     printf("\n\n\tESC para salir");
 }
 
 int cargaArregloRandom(int a[], int dim){
     int i;
-    for(i=0;i<dim;i++){
+    for(i=0;i<dim-1;i++){
         a[i]=rand()%10+1;
     }
     return i;
@@ -124,5 +137,36 @@ void ordenacionPorSeleccionInt(int a[], int v){
     for(int i=0;i<v-1;i++){
         posMenor = buscaPosMenor(a, v, i);
         intercambio(&a[i],&a[posMenor]);
+    }
+}
+
+int insertaEnArregloOrdenadoInt(int a[], int v, int dim, int dato){
+    int validos = -1;
+    int i = v - 1;
+    if(v < dim){
+        while(i>=0 && dato < a[i]){
+            a[i+1] = a[i];
+            i--;
+        }
+        a[i+1] = dato;
+        validos = v + 1;
+    }
+
+    return validos;
+}
+
+
+void insertaEnArregloOrdenadoInt2(int a[], int v, int dato){
+    int i = v - 1;
+    while(i>=0 && dato < a[i]){
+        a[i+1] = a[i];
+        i--;
+    }
+    a[i+1] = dato;
+}
+
+void ordenaPorInsercion(int a[], int v){
+    for(int i=0;i<v-1;i++){
+        insertaEnArregloOrdenadoInt2(a, i, a[i+1]);
     }
 }
