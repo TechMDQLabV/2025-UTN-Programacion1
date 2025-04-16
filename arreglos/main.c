@@ -170,3 +170,7 @@ void ordenaPorInsercion(int a[], int v){
         insertaEnArregloOrdenadoInt2(a, i, a[i+1]);
     }
 }
+
+int randomRango(int min, int max){
+    rerturn rand()%(max-min)+min;
+}
