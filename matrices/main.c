@@ -16,6 +16,10 @@ int main()
     char nombre[30];
 
     char nombres[DIM][30];
+    char apellidos[DIM][30];
+    int legajos[DIM];
+    int notas[DIM];
+    int vParalelos=0;
     int vNombres = 0;
     do{
         menuDeOpciones();
@@ -48,6 +52,14 @@ int main()
                 printf("\n <<<< Ordena Nombres por Seleccion >>>> \n");
                 ordenaNombresPorSeleccion(nombres, vNombres);
                 break;
+            case 55:
+                printf("\n <<<< Carga arreglos paralelos >>>> \n");
+                vParalelos = cargaParalelos(legajos, apellidos, nombres, notas, DIM);
+                break;
+            case 56:
+                printf("\n <<<< Muestra arreglos paralelos >>>> \n");
+                muestraParalelos(legajos, apellidos, nombres, notas, vParalelos);
+                break;
         }
         getch();
         system("cls");
@@ -64,6 +76,8 @@ void menuDeOpciones(){
     printf("\n 4. Muestra Listado de Nombres");
     printf("\n 5. Carga arreglo de nombres random");
     printf("\n 6. Ordena nombres por seleccion");
+    printf("\n 7. Carga arreglos paralelos");
+    printf("\n 8. Muestra arreglos paralelos");
 }
 
 void cargaMatrizRandom(int fil, int col, int m[fil][col]){
@@ -125,10 +139,61 @@ void cargaNombre(char n[]){
     strcpy(n, nombres[rand()%(sizeof(nombres)/30)]);
 }
 
+void cargaApellido(char apellido[30]){
+    char apellidos[][30]={
+        "García", "Rodríguez", "González", "Fernández", "López",
+        "Martínez", "Sánchez", "Pérez", "Gómez", "Martín",
+        "Jiménez", "Ruiz", "Hernández", "Díaz", "Moreno",
+        "Álvarez", "Muñoz", "Romero", "Alonso", "Gutiérrez",
+        "Navarro", "Torres", "Domínguez", "Vázquez", "Ramos",
+        "Gil", "Ramírez", "Serrano", "Blanco", "Suárez",
+        "Molina", "Morales", "Ortega", "Delgado", "Castro",
+        "Ortíz", "Rubio", "Marín", "Sanz", "Iglesias",
+        "Medina", "Cortés", "Garrido", "Castillo", "Santos",
+        "Lozano", "Guerrero", "Cano", "Prieto", "Méndez",
+        "Cruz", "Calvo", "Gallego", "Vidal", "León",
+        "Herrera", "Márquez", "Peña", "Flores", "Cabrera",
+        "Campos", "Vega", "Fuentes", "Carrasco", "Diez",
+        "Reyes", "Caballero", "Núñez", "Aguilar", "Pascual",
+        "Santana", "Herrero", "Montero", "Lorenzo", "Hidalgo",
+        "Giménez", "Ibáñez", "Ferrer", "Durán", "Santiago",
+        "Benítez", "Mora", "Vicente", "Vargas", "Arias",
+        "Carmona", "Crespo", "Román", "Pastor", "Soto",
+        "Sáez", "Velasco", "Moya", "Soler", "Parra",
+        "Esteban", "Bravo", "Gallardo", "Rojas", "Pardo"
+    };
+
+    strcpy(apellido, apellidos[rand()%(sizeof(apellidos)/30)]);
+}
+
+int cargaArregloApellidosRandom(char a[][30], int dim){
+    int i;
+    for(i=0;i<dim;i++){
+        cargaApellido(a[i]);
+    }
+    return i;
+}
+
 int cargaArregloNombresRandom(char n[][30], int dim){
     int i;
     for(i=0;i<dim;i++){
         cargaNombre(n[i]);
+    }
+    return i;
+}
+
+int cargaArregloLegajos(int l[], int dim){
+    int i;
+    for(i=0; i<dim; i++){
+        l[i]=rand()%10000;
+    }
+    return i;
+}
+
+int cargaArregloNotas(int n[], int dim){
+    int i;
+    for(i=0; i<dim; i++){
+        n[i]=rand()%10+1;
     }
     return i;
 }
@@ -173,3 +238,24 @@ void intercambioNombres(char n1[], char n2[]){
     strcpy(n1, n2);
     strcpy(n2, aux);
 }
+
+int cargaParalelos(int l[], char a[][30], char n[][30], int notas[], int dim){
+    int i;
+    i = cargaArregloApellidosRandom(a, dim);
+    cargaArregloNombresRandom(n, dim);
+    cargaArregloLegajos(l, dim);
+    cargaArregloNotas(notas, dim);
+    return i;
+}
+
+void muestraParalelos(int l[], char a[][30], char n[][30], int notas[], int v){
+    for(int i=0;i<v;i++){
+        printf("\n Legajo........: %d", l[i]);
+        printf("\n Apellido......: %s", a[i]);
+        printf("\n Nombre........: %s", n[i]);
+        printf("\n Nota..........: %d", notas[i]);
+        printf("\n ______________________________________________________");
+    }
+}
+
+
