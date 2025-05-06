@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1746569702 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"stAlumno.h"
+
+1746569586 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.h
+	<stdio.h>
+	<stdlib.h>
+
+1746569780 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.c
+	"stAlumno.h"
+
