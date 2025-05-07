@@ -1,24 +1,32 @@
 # depslib dependency file v1.0
-1746576370 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\main.c
+1746654059 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\main.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 	"mocks.h"
+	"mockAlumnos.h"
 	"stAlumno.h"
 
 1746573862 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.h
 	<stdio.h>
 	<stdlib.h>
 
-1746574086 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.c
+1746654019 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.c
 	"stAlumno.h"
 
-1746575632 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mocks.h
+1746653485 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mocks.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
-	"stAlumno.h"
 
-1746576225 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mocks.c
+1746653485 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mocks.c
 	"mocks.h"
+
+1746653485 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mockalumnos.c
+	"mockAlumnos.h"
+
+1746653485 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mockalumnos.h
+	<stdio.h>
+	<stdlib.h>
+	"stAlumno.h"
 

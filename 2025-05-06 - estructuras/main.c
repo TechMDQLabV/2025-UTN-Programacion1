@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include "mocks.h"
+#include "mockAlumnos.h"
 #include "stAlumno.h"
 
 #define ESC 27
@@ -11,13 +12,13 @@ int main()
 {
     stAlumno alumnos[DIM];
     int vAlumnos = 0;
-    vAlumnos = cargaArregloAlumnosAuto(alumnos, DIM);
-    stAlumno a = alumnos[99];
-    //vAlumnos = cargaArregloAlumnos(alumnos, vAlumnos, DIM);
+   // vAlumnos = cargaArregloAlumnosAuto(alumnos, DIM);
+    //stAlumno a = alumnos[99];
+    vAlumnos = cargaArregloAlumnos(alumnos, vAlumnos, DIM);
     printf("\n <<<< Listado de Alumnos >>>> \n");
     muestraArregloAlumnos(alumnos, vAlumnos);
-    printf("\n Alumno a");
-    mostrarUnAlumno(a);
+    //printf("\n Alumno a");
+    //mostrarUnAlumno(a);
 
     return 0;
 }
@@ -27,7 +28,8 @@ int cargaArregloAlumnos(stAlumno a[], int v, int dim){
     int i = v;
 
     while(v < dim && opcion != ESC){
-        a[i] = cargaUnAlumno();
+        //a[i] = cargaUnAlumno();
+        cargaUnAlumnoP(&a[i]);
         i++;
         printf("\nESC para salir o cualquier tecla para continuar");
         opcion = getch();

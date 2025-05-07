@@ -25,3 +25,18 @@ stAlumno cargaUnAlumno(){
     fflush(stdin);
     return a;
 }
+
+void cargaUnAlumnoP(stAlumno *p){
+    static int id = 0;
+    id++;
+    p->id = id;
+    printf("\nNombre..........: ");
+    gets(p->nombre);
+    printf("\nApellido........: ");
+    gets(p->apellido);
+    printf("\nDNI.............: ");
+    gets(p->dni);
+    printf("\nLegajo..........: ");
+    scanf("%d", &p->legajo);
+    fflush(stdin);
+}
