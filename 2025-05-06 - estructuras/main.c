@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include "mocks.h"
 #include "stAlumno.h"
 
 #define ESC 27
@@ -10,11 +11,13 @@ int main()
 {
     stAlumno alumnos[DIM];
     int vAlumnos = 0;
-
-    vAlumnos = cargaArregloAlumnos(alumnos, vAlumnos, DIM);
+    vAlumnos = cargaArregloAlumnosAuto(alumnos, DIM);
+    stAlumno a = alumnos[99];
+    //vAlumnos = cargaArregloAlumnos(alumnos, vAlumnos, DIM);
     printf("\n <<<< Listado de Alumnos >>>> \n");
     muestraArregloAlumnos(alumnos, vAlumnos);
-
+    printf("\n Alumno a");
+    mostrarUnAlumno(a);
 
     return 0;
 }

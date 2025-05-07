@@ -1,6 +1,7 @@
 #include "stAlumno.h"
 
 void mostrarUnAlumno(stAlumno a){
+    printf("\nId....................: %d", a.id);
     printf("\nNombre................: %s", a.nombre);
     printf("\nApellido..............: %s", a.apellido);
     printf("\nDNI...................: %s", a.dni);
@@ -9,7 +10,10 @@ void mostrarUnAlumno(stAlumno a){
 }
 
 stAlumno cargaUnAlumno(){
+    static int id = 0;
+    id++;
     stAlumno a;
+    a.id=id;
     printf("\nNombre..........: ");
     gets(a.nombre);
     printf("\nApellido........: ");

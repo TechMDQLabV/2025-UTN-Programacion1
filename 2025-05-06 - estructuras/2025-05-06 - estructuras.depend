@@ -1,13 +1,24 @@
 # depslib dependency file v1.0
-1746569702 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\main.c
+1746576370 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\main.c
 	<stdio.h>
 	<stdlib.h>
+	<conio.h>
+	"mocks.h"
 	"stAlumno.h"
 
-1746569586 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.h
+1746573862 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.h
 	<stdio.h>
 	<stdlib.h>
 
-1746569780 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.c
+1746574086 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\stalumno.c
 	"stAlumno.h"
+
+1746575632 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mocks.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"stAlumno.h"
+
+1746576225 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-06 - estructuras\mocks.c
+	"mocks.h"
 

@@ -34,6 +34,13 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="mocks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mocks.h" />
+		<Unit filename="stAlumno.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="stAlumno.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
