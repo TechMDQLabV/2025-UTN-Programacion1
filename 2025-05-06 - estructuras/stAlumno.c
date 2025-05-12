@@ -9,6 +9,23 @@ void mostrarUnAlumno(stAlumno a){
     printf("\n__________________________________________");
 }
 
+/**
+ * @brief Carga un alumno con intervención del usuario y lo retorna
+ *
+ * @param void
+ * @return stAlumno.
+ *
+ * @author Juan Pérez
+ * @date 2025/06/05
+ * @version 1.0
+ *
+ * @pre no hay
+ * @post La estructura se retorna con un id autoincremental y el resto de los datos ingresados por el usuario.
+ *
+ * @code
+ * stAlumno alumno = cargaUnAlumno();
+ * @endcode
+ */
 stAlumno cargaUnAlumno(){
     static int id = 0;
     id++;
