@@ -51,4 +51,7 @@ int cargaLegajo(){
     return rand()%10000;
 }
 
+int cargaNota(){
+    return rand()%10 + 1;
+}
 

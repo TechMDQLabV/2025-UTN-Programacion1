@@ -10,16 +10,19 @@
 
 int main()
 {
+    int cont[11]={0};
     stAlumno alumnos[DIM];
     int vAlumnos = 0;
-   // vAlumnos = cargaArregloAlumnosAuto(alumnos, DIM);
+    vAlumnos = cargaArregloAlumnosAuto(alumnos, DIM);
     //stAlumno a = alumnos[99];
-    vAlumnos = cargaArregloAlumnos(alumnos, vAlumnos, DIM);
+    //vAlumnos = cargaArregloAlumnos(alumnos, vAlumnos, DIM);
     printf("\n <<<< Listado de Alumnos >>>> \n");
     muestraArregloAlumnos(alumnos, vAlumnos);
     //printf("\n Alumno a");
     //mostrarUnAlumno(a);
-
+    cuentaNotas(alumnos, vAlumnos, cont);
+    printf("\n <<<<< Cantidad de notas >>>>>");
+    muestraContadorDeNotas(cont);
     return 0;
 }
 
@@ -41,5 +44,17 @@ int cargaArregloAlumnos(stAlumno a[], int v, int dim){
 void muestraArregloAlumnos(stAlumno a[], int v){
     for(int i=0; i<v; i++){
         mostrarUnAlumno(a[i]);
+    }
+}
+
+void cuentaNotas(stAlumno a[], int v, int cont[]){
+    for(int i=0; i<v; i++){
+        cont[a[i].nota]++;
+    }
+}
+
+void muestraContadorDeNotas(int cont[]){
+    for(int i=0; i<11; i++){
+        printf("\n Nota %2d: %2d", i, cont[i]);
     }
 }

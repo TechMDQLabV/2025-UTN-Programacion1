@@ -6,6 +6,7 @@ void mostrarUnAlumno(stAlumno a){
     printf("\nApellido..............: %s", a.apellido);
     printf("\nDNI...................: %s", a.dni);
     printf("\nLegajo................: %d", a.legajo);
+    printf("\nNota..................: %d", a.nota);
     printf("\n__________________________________________");
 }
 
@@ -39,6 +40,8 @@ stAlumno cargaUnAlumno(){
     gets(a.dni);
     printf("\nLegajo..........: ");
     scanf("%d", &a.legajo);
+    printf("\nNota............: ");
+    scanf("%d", &a.legajo);
     fflush(stdin);
     return a;
 }
@@ -55,5 +58,7 @@ void cargaUnAlumnoP(stAlumno *p){
     gets(p->dni);
     printf("\nLegajo..........: ");
     scanf("%d", &p->legajo);
+    printf("\nNota............: ");
+    scanf("%d", &p->nota);
     fflush(stdin);
 }

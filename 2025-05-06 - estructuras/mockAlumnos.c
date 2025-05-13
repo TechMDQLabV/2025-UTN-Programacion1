@@ -8,7 +8,7 @@ int cargaArregloAlumnosAuto(stAlumno a[], int dim){
         cargaApellido(a[i].apellido);
         cargaDni(a[i].dni);
         a[i].legajo=cargaLegajo();
-
+        a[i].nota=cargaNota();
     }
     return i;
 }
