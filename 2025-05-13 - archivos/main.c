@@ -7,15 +7,11 @@
 #define DIM 20
 #define ARCHI_ALUMNOS "alumnos.dat"
 
+stAlumno buscaAlumnoPorDni(char nombreArchivo[], char dni[]);
+
 int main()
 {
-   /* for(int i=0;i<256; i++){
-        color(i);
-        printf("\n Color: %d", i);
-    }
-    system("pause");
-    */
-        stAlumno alumnos[DIM];
+    stAlumno alumnos[DIM];
     int vAlumnos=0;
     vAlumnos = cargaArregloAlumnosAuto(alumnos, DIM);
     printf("\n <<<<< Listado de Alumnos del arreglo>>>>>");
@@ -23,7 +19,9 @@ int main()
     arreglo2archivo(alumnos, vAlumnos, ARCHI_ALUMNOS);
     printf("\n <<<<< Listado de Alumnos del archivo >>>>> ");
     printf("\n <<<<< CAntidad de registros: %d >>>>> ", cuentaRegistros(ARCHI_ALUMNOS));
-    leeArchivo(ARCHI_ALUMNOS);
+    muestraArchivoAlumnos(ARCHI_ALUMNOS);
+    stAlumno a = buscaAlumnoPorDni(ARCHI_ALUMNOS, "6673386");
+    mostrarUnAlumno(a);
     return 0;
 }
 
@@ -49,7 +47,7 @@ void arregloCompleto2archivo(stAlumno a[], int v, char nombreArchivo[]){
     }
 }
 
-void leeArchivo(char nombreArchivo[]){
+void muestraArchivoAlumnos(char nombreArchivo[]){
     FILE *archi = fopen(nombreArchivo, "rb");
     stAlumno alumno;
     if(archi){
@@ -87,4 +85,36 @@ int ultimoIdAlumno(char nombreArchivo[]){
         ultimoId=alumno.id;
     }
     return ultimoId;
+}
+
+int buscaDniArchivo(char nombreArchivo[], char dni[]){
+    int encontrado = 0;
+    stAlumno a;
+    FILE *archi = fopen(nombreArchivo, "rb");
+
+    if(archi){
+        while(encontrado == 0 && fread(&a, sizeof(stAlumno), 1, archi)>0){
+            if(strcmp(dni, a.dni) == 0){
+                encontrado = 1;
+            }
+        }
+        fclose(archi);
+    }
+    return encontrado;
+}
+
+stAlumno buscaAlumnoPorDni(char nombreArchivo[], char dni[]){
+    int encontrado = 0;
+    stAlumno a;
+    FILE *archi = fopen(nombreArchivo, "rb");
+
+    if(archi){
+        while(encontrado == 0 && fread(&a, sizeof(stAlumno), 1, archi)>0){
+            if(strcmp(dni, a.dni) == 0){
+                encontrado = 1;
+            }
+        }
+        fclose(archi);
+    }
+    return a;
 }
