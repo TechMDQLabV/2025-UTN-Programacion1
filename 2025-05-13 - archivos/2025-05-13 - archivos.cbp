@@ -31,9 +31,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="gotoxy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gotoxy.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="mockAlumnos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mockAlumnos.h" />
+		<Unit filename="mocks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="mocks.h" />
+		<Unit filename="stAlumno.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="stAlumno.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

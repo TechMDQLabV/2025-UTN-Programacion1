@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1747175832 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\main.c
+1747180589 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\main.c
 	<stdio.h>
 	<stdlib.h>
 	"mockAlumnos.h"
 	"mocks.h"
+	"gotoxy.h"
 
 1746653485 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\mockalumnos.h
 	<stdio.h>
@@ -27,4 +28,11 @@
 
 1747174304 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\mockalumnos.c
 	"mockAlumnos.h"
+
+1491400450 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\gotoxy.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1491399896 c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\gotoxy.h
 
