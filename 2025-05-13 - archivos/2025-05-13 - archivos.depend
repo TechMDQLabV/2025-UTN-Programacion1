@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1747180589 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\main.c
+1747259493 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\2025-05-13 - archivos\main.c
 	<stdio.h>
 	<stdlib.h>
 	"mockAlumnos.h"
