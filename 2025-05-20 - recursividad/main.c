@@ -22,7 +22,9 @@ int factorial(int x){
 int factorial1(int x){
     int rta = 1;
     if(x>0){
+        /// viaje de ida
         rta = x * factorial1(x-1);
+        /// viaje de vuelta
     }
     return rta;
 }

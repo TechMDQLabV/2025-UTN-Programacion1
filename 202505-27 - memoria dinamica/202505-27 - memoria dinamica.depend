@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1748385527 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\202505-27 - memoria dinamica\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<conio.h>
+	"gotoxy.h"
+
+1491399896 c:\developer\c\0 utn repositorios\2025-utn-programacion1\202505-27 - memoria dinamica\gotoxy.h
+
