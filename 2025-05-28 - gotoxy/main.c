@@ -31,7 +31,7 @@ int main()
                 color(15);
                 break;
             case 60:
-                color(23);
+                color(68);
                 break;
             case 61:
                 color(33);
@@ -42,8 +42,7 @@ int main()
             case 72:
                 if(y>0){
                     y--;
-                    gotoxy(x,y);
-                    printf("%c", CAR);
+                    moveAndPrint(x,y);
                 }else{
                     Beep(523,523);
                 }
@@ -51,8 +50,7 @@ int main()
             case 75:
                 if(x>0){
                     x--;
-                    gotoxy(x,y);
-                    printf("%c", CAR);
+                    moveAndPrint(x,y);
                }else{
                     Beep(523,523);
                 }
@@ -60,8 +58,7 @@ int main()
             case 77:
                 if(x<80){
                     x++;
-                    gotoxy(x,y);
-                    printf("%c", CAR);
+                    moveAndPrint(x,y);
                }else{
                     Beep(523,523);
                 }
@@ -69,8 +66,7 @@ int main()
             case 80:
                 if(y<24){
                     y++;
-                    gotoxy(x,y);
-                    printf("%c", CAR);
+                    moveAndPrint(x,y);
                }else{
                     Beep(523,523);
                 }
@@ -80,4 +76,9 @@ int main()
 
 
     return 0;
+}
+
+void moveAndPrint(int x, int y){
+    gotoxy(x,y);
+    printf("%c", CAR);
 }

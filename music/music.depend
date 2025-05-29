@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1748557514 source:c:\developer\c\0 utn repositorios\2025-utn-programacion1\music\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
